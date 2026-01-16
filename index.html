@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mark Anadeo - Software Engineer</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <nav class="navbar">
+    <a href="#home">
+      <div class="logo">Mark<span> Anadeo</span></div>
+    </a>
+
+    <div class="hamburger">
+      <i class="fa-solid fa-bars"></i>
+    </div>
+
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero" id="home">
+    <div class="hero-text hidden">
+      <h1>
+        <span class="hello">Hello,</span> I'm <span class="name">Mark</span><br />
+        <span class="role">Aspiring Software Engineer</span><br />
+        Based in the Philippines
+      </h1>
+      <p>
+        A computer science graduate eager to start a career in software
+        development and build useful, efficient systems.
+      </p>
+      <div class="hero-buttons">
+        <a href="CV/CV_MARK_ADRIAN_ANADEO.pdf" class="cv-btn" target="_blank">
+          View CV <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+      </div>
+    </div>
+
+    <div class="hero-image hidden">
+      <div class="image-bg">
+        <img src="img/manadeo.jpg" alt="Mark Anadeo" />
+      </div>
+    </div>
+  </section>
+
+  <section class="socials hidden">
+    <a href="https://www.facebook.com/markadrian.anadeo" target="_blank" class="social-card">
+      <i class="fa-brands fa-facebook"></i>
+      <div>
+        <h3>Facebook</h3>
+        <p>Connect With Me</p>
+      </div>
+    </a>
+
+    <a href="https://www.linkedin.com/in/mark-adrian-anadeo-a55ba52b0/" target="_blank" class="social-card">
+      <i class="fa-brands fa-linkedin"></i>
+      <div>
+        <h3>LinkedIn</h3>
+        <p>View My Profile</p>
+      </div>
+    </a>
+
+    <a href="https://github.com/manadeo" target="_blank" class="social-card">
+      <i class="fa-brands fa-github"></i>
+      <div>
+        <h3>GitHub</h3>
+        <p>View My Projects</p>
+      </div>
+    </a>
+  </section>
+  <section class="about" id="about">
+    <h1>About <span>Me</span></h1>
+
+    <div class="about-container">
+      <div class="about-image">
+        <img src="img/mark.png" alt="About Me" />
+      </div>
+
+      <div class="about-text">
+        <h2>Who Am I?</h2>
+        <p>
+          I'm Mark Adrian Anadeo, a recent Computer Science graduate from
+          Misamis University. I have a strong passion for technology and
+          software development. Throughout my academic journey, I have gained
+          hands-on experience in various programming languages and frameworks,
+          allowing me to develop a solid foundation in software engineering
+          principles.
+        </p>
+        <p>
+          I am eager to apply my skills and knowledge in a professional
+          setting, where I can contribute to innovative projects and grow as a
+          software engineer. I am a quick learner, adaptable, and thrive in
+          collaborative environments. I am excited about the opportunity to
+          work with a dynamic team and make a positive impact through my work.
+        </p>
+      </div>
+    </div>
+  </section>
+  <section class="skills" id="skills">
+    <h1><span>My</span> Skills</h1>
+
+    <div class="skills-wrapper">
+      <button class="arrow-btn left" id="prevBtn">
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+
+      <div class="skills-container" id="skillsContainer">
+        <div class="skill-card">
+          <i class="fa-solid fa-code"></i>
+          <h3>Frontend Development</h3>
+          <p>HTML5, CSS3, JavaScript</p>
+        </div>
+
+        <div class="skill-card">
+          <i class="fa-solid fa-database"></i>
+          <h3>Backend Development</h3>
+          <p>
+            PHP, Laravel, Java, C/C++, Python, Express.js, Node.js, MySQL,
+            REST API
+          </p>
+        </div>
+
+        <div class="skill-card">
+          <i class="fa-solid fa-lock"></i>
+          <h3>Security</h3>
+          <p>AES</p>
+        </div>
+
+        <div class="skill-card">
+          <i class="fa-solid fa-toolbox"></i>
+          <h3>Developer Tools</h3>
+          <p>
+            Git, GitHub, Visual Studio Code
+          </p>
+        </div>
+
+        <div class="skill-card">
+          <i class="fa-solid fa-palette"></i>
+          <h3>Media & Design</h3>
+          <p>Figma, Adobe Photoshop, Adobe Premiere Pro, Canva</p>
+        </div>
+
+        <div class="skill-card">
+          <i class="fa-solid fa-file-word"></i>
+          <h3>Office Applications</h3>
+          <p>Word, PowerPoint, Excel</p>
+        </div>
+      </div>
+
+      <button class="arrow-btn right" id="nextBtn">
+        <i class="fa-solid fa-chevron-right"></i>
+      </button>
+    </div>
+  </section>
+
+  <section class="projects" id="projects">
+    <h1>My <span>Projects</span></h1>
+    <div class="projects-container">
+      <div class="project-card">
+        <div class="card-icon">
+          <i class="fa-solid fa-graduation-cap"></i>
+        </div>
+        <h3>Student Info System</h3>
+        <p>A comprehensive system for managing student records and administrator workflows securely.</p>
+        <div class="tech-stack">
+          <span>PHP</span>
+          <span>MySQL</span>
+          <span>Admin Panel</span>
+        </div>
+      </div>
+
+
+      <div class="project-card">
+        <div class="card-icon">
+          <i class="fa-solid fa-users-line"></i>
+        </div>
+        <h3>Queueing with SMS</h3>
+        <p>Smart school queue management sending real-time SMS alerts when users are near the front.</p>
+        <div class="tech-stack">
+          <span>SMS API</span>
+          <span>Real-time</span>
+          <span>System</span>
+        </div>
+      </div>
+
+
+      <div class="project-card">
+        <div class="card-icon">
+          <i class="fa-solid fa-circle-question"></i>
+        </div>
+        <h3>Interactive Quiz System</h3>
+        <p>A dynamic platform where admins craft questions and users engage in timed quizzes.</p>
+        <div class="tech-stack">
+          <span>PHP</span>
+          <span>Interactive</span>
+          <span>MySQL</span>
+        </div>
+      </div>
+
+
+      <div class="project-card">
+        <div class="card-icon">
+          <i class="fa-solid fa-flask"></i>
+        </div>
+        <h3>Lab Equipment Manager</h3>
+        <p>Efficient tracking for laboratory inventory, usage logs, maintenance schedules, and stock alerts.</p>
+        <div class="tech-stack">
+          <span>Inventory</span>
+          <span>Tracking</span>
+          <span>Dashboard</span>
+        </div>
+      </div>
+
+
+      <div class="project-card">
+        <div class="card-icon">
+          <i class="fa-solid fa-syringe"></i>
+        </div>
+        <h3>Vaccine Monitoring</h3>
+        <p>Full lifecycle tracking of vaccination records, maintaining detailed dose and booster analytics.</p>
+        <div class="tech-stack">
+          <span>HealthTech</span>
+          <span>Analytics</span>
+          <span>Secure</span>
+        </div>
+      </div>
+
+
+      <div class="project-card">
+        <div class="card-icon">
+          <i class="fa-solid fa-newspaper"></i>
+        </div>
+        <h3>CMS & News Posting</h3>
+        <p>A robust multi-role CMS with secure authentication, RBAC, and granular content moderation tools.</p>
+        <div class="tech-stack">
+          <span>RBAC</span>
+          <span>CMS</span>
+          <span>Security</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="experience" id="experience">
+    <h1>Experience & <span>Education</span></h1>
+    <div class="excerpt-row">
+      <div class="excerpt-col">
+        <h3 class="col-title">Experience</h3>
+        <div class="timeline-box">
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">2025 - Present</div>
+            <div class="timeline-content">
+              <h3>Freelance Software & Web Developer</h3>
+              <p>Developing custom websites and software solutions. Focusing on responsive design, performance
+                optimization, and delivering user-centric applications.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">2025</div>
+            <div class="timeline-content">
+              <h3>Information System Intern</h3>
+              <p>At Sophi Outsourcing, handled equipment inventory, system security updates, and basic hardware and
+                software troubleshooting.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">2020</div>
+            <div class="timeline-content">
+              <h3>Hello World 👋🏻</h3>
+              <p>Wrote my first line of code.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="excerpt-col">
+        <h3 class="col-title">Education</h3>
+        <div class="timeline-box">
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">2021 - 2025</div>
+            <div class="timeline-content">
+              <h3>BS in Computer Science</h3>
+              <p>Misamis University</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">2018 - 2020</div>
+            <div class="timeline-content">
+              <h3>Information and Communications Technology</h3>
+              <p>Misamis Occidental National High School</p>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="contact-content">
+      <h2 class="contact-subtitle">Available for new opportunities</h2>
+      <h1>Let's build something <span>together</span>.</h1>
+      <p>I'm always open to discussing new projects, creative ideas or opportunities to be part of your visions.</p>
+      <div class="contact-actions">
+        <a href="mailto:markadrianmaghanoyanadeo@gmail.com" class="main-contact-btn">Get In Touch</a>
+        <div class="social-links-minimal">
+          <a href="https://www.linkedin.com/in/mark-adrian-anadeo-a55ba52b0/" target="_blank">LinkedIn</a>
+          <a href="https://github.com/manadeo" target="_blank">GitHub</a>
+          <a href="https://wa.me/639560084550" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>&copy; 2026 <span>Mark Anadeo</span>. All rights reserved.</p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+
+
+</html>
