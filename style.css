@@ -314,6 +314,8 @@ nav {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 20px;
+  /* Add gap between arrows and container */
 }
 
 /* Container for scrolling */
@@ -326,6 +328,10 @@ nav {
   -ms-overflow-style: none;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
+  flex: 1;
+  /* Take up remaining space */
+  min-width: 0;
+  /* Allow shrinking for overflow to work */
 }
 
 .skills-container::-webkit-scrollbar {
@@ -391,9 +397,7 @@ nav {
 
 /* Arrow Buttons */
 .arrow-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+  /* position: absolute;  Removed absolute positioning */
   background: #1a1a1a;
   color: #fff;
   border: 2px solid #ca3537;
@@ -407,6 +411,8 @@ nav {
   cursor: pointer;
   transition: all 0.3s ease;
   z-index: 10;
+  flex-shrink: 0;
+  /* Prevent button from squishing */
 }
 
 .arrow-btn:hover {
@@ -416,17 +422,11 @@ nav {
 }
 
 .arrow-btn:active {
-  transform: translateY(-50%) scale(0.9);
+  transform: scale(0.9);
 }
 
-/* Place arrows outside the container */
-.arrow-btn.left {
-  left: -60px;
-}
-
-.arrow-btn.right {
-  right: -60px;
-}
+/* Place arrows using gap in flex wrapper instead of absolute positioning */
+/* Specific styling for left/right arrows removed as they are now flex items */
 
 /* Optional: narrow container to show carousel effect */
 .skills-wrapper {
@@ -978,132 +978,243 @@ nav.sticky {
 
 /* Experience Section */
 .experience {
-  background-color: #0e0e0e;
-  color: white;
   padding: 80px 8%;
+  background-color: #0c0c08;
+  /* Match mix of dark backgrounds */
+  color: white;
   text-align: center;
+  overflow: hidden;
 }
 
 .experience h1 {
   font-size: 2.5rem;
-  margin-bottom: 60px;
+  margin-bottom: 70px;
 }
 
 .experience span {
   color: #ca3537;
 }
 
-/* Experience & Education Columns */
-.excerpt-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 5rem;
-  justify-content: center;
-  align-items: flex-start;
-}
-
-.excerpt-col {
-  flex: 1 1 400px;
-}
-
-.col-title {
-  font-size: 1.8rem;
-  margin-bottom: 2rem;
-  color: #fff;
-  border-left: 4px solid #ca3537;
-  padding-left: 15px;
-  line-height: 1;
-  text-align: left;
-}
-
-.timeline-box {
+.timeline {
   position: relative;
-  border-left: 2px solid #2a2a2a;
-  padding-left: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Vertical Line */
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 4px;
+  background-color: rgba(255, 255, 255, 0.1);
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -2px;
+  /* Center the line */
+  border-radius: 2px;
 }
 
 .timeline-item {
+  padding: 10px 40px;
   position: relative;
-  margin-bottom: 40px;
-  opacity: 0;
-  /* Animate in */
+  background-color: inherit;
+  width: 50%;
+  box-sizing: border-box;
+  /* animation handled by JS/Observer */
 }
 
-/* Override previous alternating styles */
-.timeline-item:nth-child(odd),
-.timeline-item:nth-child(even) {
+/* Left and Right positioning */
+.left {
   left: 0;
-  padding: 0;
-  text-align: left;
-  width: 100%;
+  text-align: right;
 }
 
+.right {
+  left: 50%;
+  text-align: left;
+}
+
+/* Dots on the line */
 .timeline-dot {
   position: absolute;
-  height: 16px;
-  width: 16px;
+  width: 20px;
+  height: 20px;
   background-color: #ca3537;
+  border: 4px solid #1a1a1a;
+  /* Match bg to create 'cutout' look or contrast */
+  top: 24px;
   border-radius: 50%;
-  top: 0;
-  left: -2.6rem;
-  /* Push dot to the line */
-  box-shadow: 0 0 10px #ca3537;
   z-index: 10;
+  box-shadow: 0 0 10px rgba(202, 53, 55, 0.5);
 }
 
-.timeline-item:nth-child(odd) .timeline-dot,
-.timeline-item:nth-child(even) .timeline-dot {
-  left: -2.6rem;
-  right: auto;
+.left .timeline-dot {
+  right: -10px;
 }
+
+.right .timeline-dot {
+  left: -10px;
+}
+
+/* Dates */
+.timeline-date {
+  position: absolute;
+  top: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #ca3537;
+  letter-spacing: 1px;
+}
+
+.left .timeline-date {
+  right: -140px;
+  /* Position to the right (center area) for left items?? No, usually opposite or inside. 
+                    Let's put it detailed inside or floating. 
+                    Standard timeline: Content box one side, date on other side of line? 
+                    Or date inside content?
+                    Let's put date INSIDE the content for cleaner mobile. 
+                    Or above the box. 
+                    Let's try floating near the center line. */
+  right: -130px;
+  /* Actually with the dot at center, placing date near dot looks good but might overlap line.
+     Let's put date sticky to the dot side?
+  */
+  right: auto;
+  left: 105%;
+  /* Push to the other side of line */
+  text-align: left;
+  width: 100px;
+}
+
+/* Wait, a better alternating design keeps date inside or above. 
+   Let's simplify: Date inside the card is safest for responsiveness. 
+   Re-styling to putting date nicely as a badge inside content. */
 
 .timeline-date {
-  font-size: 0.9rem;
-  color: #ca3537;
-  margin-bottom: 10px;
-  font-weight: 500;
   display: inline-block;
-  background: #1a1a1a;
-  padding: 4px 10px;
-  border-radius: 4px;
-  border: 1px solid #333;
+  margin-bottom: 10px;
+  padding: 4px 12px;
+  background: rgba(202, 53, 55, 0.1);
+  border: 1px solid rgba(202, 53, 55, 0.3);
+  border-radius: 20px;
+  color: #fff;
+  font-size: 0.85rem;
+  position: static;
+  /* Reset absolute */
 }
 
+/* Content Box */
 .timeline-content {
-  background: #1a1a1a;
-  border: 1px solid #262626;
+  padding: 25px 30px;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  /* Subtle border */
   border-radius: 12px;
-  padding: 25px;
-  transition: all 0.3s ease;
   position: relative;
+  transition: all 0.4s ease;
 }
 
 .timeline-content:hover {
-  border-color: #ca3537;
-  transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(202, 53, 55, 0.2);
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(202, 53, 55, 0.4);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
 }
 
 .timeline-content h3 {
-  font-size: 1.2rem;
-  margin-bottom: 8px;
+  font-size: 1.25rem;
   color: #fff;
+  margin-bottom: 5px;
+}
+
+.timeline-content h4 {
+  font-size: 0.95rem;
+  color: #ca3537;
+  margin-bottom: 15px;
+  font-weight: 500;
 }
 
 .timeline-content p {
   font-size: 0.9rem;
-  color: #ccc;
+  color: #aaa;
   line-height: 1.6;
 }
 
-/* Mobile adjustments */
+/* Arrows pointing to line */
+.timeline-content::before {
+  content: '';
+  position: absolute;
+  top: 24px;
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  z-index: 1;
+}
+
+.left .timeline-content::before {
+  right: -10px;
+  border-left: 10px solid rgba(255, 255, 255, 0.05);
+  /* Match bg color approx */
+}
+
+.left .timeline-content:hover::before {
+  border-left-color: rgba(255, 255, 255, 0.08);
+}
+
+.right .timeline-content::before {
+  left: -10px;
+  border-right: 10px solid rgba(255, 255, 255, 0.05);
+}
+
+.right .timeline-content:hover::before {
+  border-right-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Mobile Responsiveness */
 @media (max-width: 768px) {
-  .excerpt-row {
-    gap: 3rem;
+  .timeline::after {
+    left: 31px;
+    /* Move line to left side */
   }
 
-  .excerpt-col {
-    flex: 1 1 100%;
+  .timeline-item {
+    width: 100%;
+    padding-left: 70px;
+    /* Space for line and dot */
+    padding-right: 25px;
+  }
+
+  .timeline-item.left,
+  .timeline-item.right {
+    left: 0;
+    text-align: left;
+    /* Reset text align */
+  }
+
+  .left .timeline-dot,
+  .right .timeline-dot {
+    left: 23px;
+    /* Center alignment with line (Left 31px + 2px center = 33px. Dot 20px/2=10. 33-10 = 23px) */
+    right: auto;
+  }
+
+  /* Reset arrows for mobile - point left */
+  .left .timeline-content::before,
+  .right .timeline-content::before {
+    right: auto;
+    left: -10px;
+    border-left: none;
+    /* Reset */
+    border-right: 10px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .left .timeline-content:hover::before,
+  .right .timeline-content:hover::before {
+    border-left-color: transparent;
+    border-right-color: rgba(255, 255, 255, 0.08);
   }
 }
 
@@ -1260,29 +1371,7 @@ nav.sticky {
 /* Staggered transition delays for lists/grids */
 /* These will be controlled by the observer adding 'show' */
 
-.timeline-content ul {
-  list-style: none;
-  text-align: left;
-  padding: 0;
-  margin-top: 10px;
-}
 
-.timeline-content li {
-  position: relative;
-  padding-left: 20px;
-  color: #ccc;
-  font-size: 0.9rem;
-  line-height: 1.5;
-  margin-bottom: 8px;
-}
-
-.timeline-content li::before {
-  content: "▹";
-  color: #ca3537;
-  position: absolute;
-  left: 0;
-  top: 0;
-}
 
 /* Certificates Section */
 .certificates {
